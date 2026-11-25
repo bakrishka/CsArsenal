@@ -1,0 +1,8 @@
+@model CsArsenal.Models.Item
+
+<div class="block">
+    <h2>@Model.Title</h2>
+    <p class="meta">@Model.Category · Сторона: @Model.Side · Урон: @Model.Damage · Цена: $@Model.Price</p>
+    <p>@Model.Description</p>
+    <a class="btn btn-primary" asp-controller="Items" asp-action="Details" asp-route-id="@Model.Id">Подробнее</a>
+</div>

@@ -1,0 +1,146 @@
+/* Стили сайта CS Arsenal */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #181c24;
+    font-family: Arial, sans-serif;
+    color: #e8ecf2;
+    margin-bottom: 60px;
+}
+
+/* Шапка */
+.navbar {
+    background-color: #232936 !important;
+    border-bottom: 2px solid #de9b35 !important;
+}
+
+.navbar a {
+    color: #de9b35 !important;
+}
+
+.navbar a:hover {
+    color: #ffffff !important;
+}
+
+/* Заголовки */
+h1 {
+    color: #de9b35;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #de9b35;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+p, li {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.meta {
+    color: #aeb7c4;
+    font-size: 14px;
+}
+
+.ok-msg {
+    color: #7ee787;
+    font-weight: bold;
+}
+
+/* Карточки и блоки */
+.block {
+    background-color: #232936;
+    border-left: 4px solid #de9b35;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.block:hover {
+    background-color: #2a3140;
+}
+
+/* Ссылки */
+a {
+    color: #de9b35;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #de9b35;
+    border-color: #de9b35;
+    color: #181c24;
+    font-weight: bold;
+    padding: 8px 22px;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #f0b14b;
+    border-color: #f0b14b;
+    color: #181c24;
+}
+
+/* Поля форм */
+.form-control {
+    background-color: #1d222d;
+    color: #ffffff;
+    border: 1px solid #de9b35;
+}
+
+.form-control:focus {
+    background-color: #1d222d;
+    color: #ffffff;
+    border-color: #f0b14b;
+    box-shadow: 0 0 0 0.2rem rgba(222, 155, 53, 0.25);
+}
+
+/* Ошибки валидации */
+.field-validation-error {
+    color: #ff8a8a;
+    font-size: 14px;
+}
+
+/* Подвал */
+.footer {
+    background-color: #232936;
+    color: #aeb7c4;
+    border-top: 1px solid #de9b35;
+}
+
+/* Адаптивность от 375px */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .block {
+        padding: 14px;
+    }
+
+    .cabinet-menu {
+        line-height: 2;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

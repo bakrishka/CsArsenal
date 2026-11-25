@@ -1,0 +1,54 @@
+@model CsArsenal.Models.ItemFormModel
+@{
+    ViewData["Title"] = "Изменить запись";
+}
+
+<h1>Изменить оружие</h1>
+<partial name="_CabinetMenu" />
+
+<div class="block">
+    <form asp-controller="Cabinet" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <p>
+            Название:
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title"></span>
+        </p>
+        <p>
+            Категория:
+            <select asp-for="Category" class="form-control">
+                <option value="Винтовка">Винтовка</option>
+                <option value="Снайперская">Снайперская</option>
+                <option value="Пистолет">Пистолет</option>
+                <option value="ПП">ПП</option>
+                <option value="Дробовик">Дробовик</option>
+            </select>
+            <span asp-validation-for="Category"></span>
+        </p>
+        <p>
+            Сторона:
+            <select asp-for="Side" class="form-control">
+                <option value="Обе">Обе</option>
+                <option value="CT">CT</option>
+                <option value="T">T</option>
+            </select>
+            <span asp-validation-for="Side"></span>
+        </p>
+        <p>
+            Цена ($):
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price"></span>
+        </p>
+        <p>
+            Базовый урон:
+            <input asp-for="Damage" class="form-control" />
+            <span asp-validation-for="Damage"></span>
+        </p>
+        <p>
+            Описание:
+            <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+            <span asp-validation-for="Description"></span>
+        </p>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>

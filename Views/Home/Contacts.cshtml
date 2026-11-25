@@ -1,0 +1,40 @@
+@model CsArsenal.Models.ContactModel
+@{
+    ViewData["Title"] = "Контакты";
+}
+
+<h1>Контакты</h1>
+
+<div class="block">
+    <p>Если у вас есть вопросы или предложения по справочнику, напишите нам через форму ниже.</p>
+    <ul>
+        <li>Email: support@csarsenal.ru</li>
+        <li>График: Пн–Пт, 10:00–18:00</li>
+    </ul>
+</div>
+
+<div class="block">
+    <h2>Форма обратной связи</h2>
+    @if (TempData["Message"] != null)
+    {
+        <p class="ok-msg">@TempData["Message"]</p>
+    }
+    <form asp-controller="Home" asp-action="Contacts" method="post">
+        <p>
+            Имя:
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name"></span>
+        </p>
+        <p>
+            Email:
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </p>
+        <p>
+            Сообщение:
+            <textarea asp-for="Message" rows="4" class="form-control"></textarea>
+            <span asp-validation-for="Message"></span>
+        </p>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>

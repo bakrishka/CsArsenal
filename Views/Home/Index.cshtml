@@ -1,0 +1,22 @@
+@model List<CsArsenal.Models.Item>
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<h1>CS Arsenal — справочник оружия Counter-Strike 2</h1>
+
+<div class="block">
+    <p>Добро пожаловать на сайт CS Arsenal. Здесь собраны основные виды оружия из Counter-Strike 2: стоимость, урон, сторона и краткое описание.</p>
+    <p>Зарегистрированные пользователи могут добавлять новые записи и управлять ими в личном кабинете.</p>
+    <a class="btn btn-primary" asp-controller="Items" asp-action="Index">Открыть каталог</a>
+</div>
+
+<h2>Популярное оружие</h2>
+@foreach (var item in Model)
+{
+    <partial name="_Card" model="item" />
+}
+
+<p>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="About">О проекте</a>
+</p>

@@ -1,0 +1,36 @@
+@model List<CsArsenal.Models.Item>
+@{
+    ViewData["Title"] = "Мои записи";
+}
+
+<h1>Мои записи</h1>
+<partial name="_CabinetMenu" />
+
+@if (TempData["Message"] != null)
+{
+    <p class="ok-msg">@TempData["Message"]</p>
+}
+
+<p><a class="btn btn-primary" asp-controller="Cabinet" asp-action="Create">Добавить запись</a></p>
+
+@if (Model.Count == 0)
+{
+    <div class="block">
+        <p>У вас пока нет записей.</p>
+    </div>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="block">
+            <h2>@item.Title</h2>
+            <p class="meta">@item.Category · Сторона: @item.Side · Урон: @item.Damage · Цена: $@item.Price</p>
+            <p>@item.Description</p>
+            <a class="btn btn-primary" asp-controller="Cabinet" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+            <form asp-controller="Cabinet" asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline" onsubmit="return confirm('Удалить запись?');">
+                <button type="submit" class="btn btn-outline-light">Удалить</button>
+            </form>
+        </div>
+    }
+}

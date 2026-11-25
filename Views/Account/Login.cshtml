@@ -1,0 +1,28 @@
+@model CsArsenal.Models.LoginModel
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<h1>Вход</h1>
+
+<div class="block">
+    @if (TempData["Message"] != null)
+    {
+        <p class="ok-msg">@TempData["Message"]</p>
+    }
+    <form asp-controller="Account" asp-action="Login" method="post">
+        <div asp-validation-summary="ModelOnly" class="field-validation-error mb-2"></div>
+        <p>
+            Email:
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </p>
+        <p>
+            Пароль:
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password"></span>
+        </p>
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+    <p class="mt-3">Нет аккаунта? <a asp-controller="Account" asp-action="Register">Регистрация</a></p>
+</div>

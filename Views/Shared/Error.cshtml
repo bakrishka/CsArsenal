@@ -1,0 +1,14 @@
+@model CsArsenal.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Ошибка";
+}
+
+<h1>Произошла ошибка</h1>
+<div class="block">
+    <p>При обработке запроса произошла ошибка.</p>
+    @if (Model.ShowRequestId)
+    {
+        <p>Код запроса: <code>@Model.RequestId</code></p>
+    }
+    <p><a class="btn btn-primary" asp-controller="Home" asp-action="Index">Перейти на главную</a></p>
+</div>

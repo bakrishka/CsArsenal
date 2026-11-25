@@ -1,0 +1,29 @@
+@using System.Security.Claims
+@model CsArsenal.Models.Item
+@{
+    ViewData["Title"] = Model.Title;
+    var canEdit = User.Identity?.IsAuthenticated == true &&
+        (User.IsInRole("Admin") || User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.UserId.ToString());
+}
+
+<h1>@Model.Title</h1>
+
+<div class="block">
+    <p><strong>Категория:</strong> @Model.Category</p>
+    <p><strong>Сторона:</strong> @Model.Side</p>
+    <p><strong>Цена:</strong> $@Model.Price</p>
+    <p><strong>Базовый урон:</strong> @Model.Damage</p>
+    <p>@Model.Description</p>
+
+    @if (canEdit)
+    {
+        <div class="mt-3">
+            <a class="btn btn-primary" asp-controller="Cabinet" asp-action="Edit" asp-route-id="@Model.Id">Изменить</a>
+            <form asp-controller="Cabinet" asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display:inline" onsubmit="return confirm('Удалить запись?');">
+                <button type="submit" class="btn btn-outline-light">Удалить</button>
+            </form>
+        </div>
+    }
+</div>
+
+<p><a class="btn btn-primary" asp-controller="Items" asp-action="Index">Назад в каталог</a></p>
